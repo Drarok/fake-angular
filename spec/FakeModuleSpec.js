@@ -77,6 +77,10 @@ describe("FakeModule", function () {
       expect(second.dependencies[1]).toBe(factory1);
     });
 
+    it('should support $inject dependencies', function () {
+      pending('$inject is not yet supported');
+    });
+
     it('should create array factories', function () {
       module.factory('factory', [function () {
         return {
