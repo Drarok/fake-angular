@@ -1,8 +1,12 @@
 {
   "name": "fake-angular",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Fake Angular.js for testing",
   "main": "fake-angular.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drarok/fake-angular"
+  },
   "scripts": {
     "test": "node_modules/.bin/jasmine"
   },
