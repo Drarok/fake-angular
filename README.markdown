@@ -1,4 +1,4 @@
-# Fake Angular ![Build Status](https://travis-ci.org/Drarok/fake-angular.svg "Build Status")
+# Fake Angular [![Build Status](https://travis-ci.org/Drarok/fake-angular.svg "Build Status")](https://travis-ci.org/Drarok/fake-angular)
 
 This package provides a "fake Angular.js", used for quick and dirty testing.
 
