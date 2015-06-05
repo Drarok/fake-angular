@@ -1,0 +1,14 @@
+{
+  "name": "fake-angular",
+  "version": "0.0.0",
+  "description": "Fake Angular.js for testing",
+  "main": "fake-angular.js",
+  "scripts": {
+    "test": "node_modules/.bin/jasmine"
+  },
+  "author": "Mat Gadd <source@catchall.drarok.com>",
+  "license": "BSD",
+  "devDependencies": {
+    "jasmine": "^2.3.1"
+  }
+}
