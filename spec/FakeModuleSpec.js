@@ -46,11 +46,11 @@ describe("FakeModule", function () {
     });
 
     it('should create simple factories with dependencies', function () {
-      module.factory('$factory0', [function () {
+      module.factory('$factory0', function () {
         return {
           name: '$factory0'
         };
-      }]);
+      });
 
       module.factory('factory1', function ($factory0) {
         return {
@@ -78,7 +78,27 @@ describe("FakeModule", function () {
     });
 
     it('should support $inject dependencies', function () {
-      pending('$inject is not yet supported');
+      module.factory('$factory0', function () {
+        return {
+          name: '$factory0'
+        };
+      });
+
+      var factory1 = function ($factory0) {
+        return {
+          name: 'factory1',
+          dependencies: [
+            $factory0
+          ]
+        };
+      };
+      factory1.$inject = ['$factory0'];
+      module.factory('factory1', factory1);
+
+      var first = module.factory('$factory0');
+      var second = module.factory('factory1');
+
+      expect(second.dependencies[0]).toBe(first);
     });
 
     it('should create array factories', function () {
