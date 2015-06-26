@@ -14,6 +14,20 @@ describe("FakeModule", function () {
     module = new FakeModule(angular, 'ngApp.testModule', []);
   });
 
+  describe('config', function () {
+    it('should store and return the config callback', function () {
+      var success = false;
+
+      module.config(function () {
+        success = true;
+      });
+
+      module.config()();
+
+      expect(success).toBe(true);
+    });
+  });
+
   describe('factories', function () {
     it('should fail to create a non-existent factory', function () {
       var fail = function () {
