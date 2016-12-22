@@ -8,7 +8,8 @@ describe("FakeModule", function () {
     angular = {
       modules: {},
       factories: {},
-      instances: {}
+      instances: {},
+      values: {}
     };
 
     module = new FakeModule(angular, 'ngApp.testModule', []);
@@ -169,6 +170,36 @@ describe("FakeModule", function () {
       };
 
       expect(fail).toThrowError('Circular dependency: factory1 <- factory2 <- factory1');
+    });
+  });
+
+  describe('values', function () {
+    it('should fail to return a non-existent value', function () {
+      var fail = function () {
+        module.value('does-not-exist');
+      };
+
+      expect(fail).toThrowError('No such value: does-not-exist');
+    });
+
+    it('should support set and get for values', function () {
+      var MyValue = {
+        NAME: 'name'
+      };
+
+      module.value('MyValue', MyValue);
+
+      expect(module.value('MyValue')).toBe(MyValue);
+    });
+
+    it ('should not allow values to be overwritten', function () {
+      module.value('exists', true);
+
+      var fail = function () {
+        module.value('exists', 1);
+      };
+
+      expect(fail).toThrowError('Attempt to overwrite value: exists');
     });
   });
 });
