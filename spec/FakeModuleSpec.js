@@ -201,5 +201,19 @@ describe("FakeModule", function () {
 
       expect(fail).toThrowError('Attempt to overwrite value: exists');
     });
+
+    it('should resolve values as dependencies', function () {
+      // Define an object so we know we got the same isntance back.
+      var value = { key: true };
+
+      // Define value and factory that depends on it.
+      module.value('MyValue', value);
+      module.factory('factory1', ['MyValue', function (MyValue) {
+        expect(MyValue).toBe(value);
+      }]);
+
+      // Load the factory.
+      module.factory('factory1');
+    });
   });
 });

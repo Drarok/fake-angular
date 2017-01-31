@@ -1,6 +1,6 @@
 {
   "name": "fake-angular",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Fake Angular.js for testing",
   "main": "fake-angular.js",
   "repository": {
